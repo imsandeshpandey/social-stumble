@@ -1,5 +1,6 @@
 import {
   ArrowUpward,
+  SendOutlined,
   UploadFileRounded,
   WrapTextOutlined,
 } from "@mui/icons-material";
@@ -52,7 +53,7 @@ const CommentSection = ({ children, onComment }) => {
           color="grey.100"
           activeStyles={{ backgroundColor: theme.palette.info.main }}
           hoverStyles={{ backgroundColor: theme.palette.info.main }}
-          icon={<ArrowUpward />}
+          icon={<SendRounded />}
         />
       </Flex>
       <Box maxHeight="200px" overflow="scroll">
