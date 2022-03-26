@@ -17,6 +17,7 @@ import Container from "./basic-components/Container";
 import Flex from "./basic-components/Flex";
 import TextField from "./basic-components/InputField/Input";
 import { themeMode } from "./basic-components/theme/theme";
+import { isMobile } from "./basic-components/typography/typography";
 import Logo from "./Logo/Logo";
 
 const Header = () => {
@@ -48,15 +49,18 @@ const Header = () => {
           >
             <Logo
               onClick={() => navigate("/")}
-              style={{ cursor: "pointer", width: "110px" }}
+              style={{ cursor: "pointer" }}
+              mx={["auto", 0]}
+              width={[80, 90, 100]}
             />
 
-            <Box margin="auto" width={["150px", "200px", "250px"]}>
+            <Box margin="auto" width={["130px", "200px", "250px"]}>
               <TextField
                 search
-                py={4}
                 placeholder="Search"
                 width="50px"
+                py={isMobile() ? 3 : 4}
+                bgcolor={`${theme.palette.grey[100]}77`}
                 value={value}
                 onChange={(e) => {
                   setValue(e.target.value);
@@ -65,10 +69,10 @@ const Header = () => {
               />
             </Box>
             <Box
-              display="grid"
-              gap={2}
+              display="flex"
+              justifyContent="flex-end"
+              gap={[1, 2]}
               alignItems="center"
-              gridTemplateColumns="repeat(6,1fr)"
             >
               <IconBtn
                 onClick={() => navigate("/")}
@@ -76,22 +80,22 @@ const Header = () => {
                 activeStyles={{ boxShadow: "none" }}
                 icon={<HomeOutlined />}
               />
-              <IconBtn
+              {/* <IconBtn
                 disableRipple
                 activeStyles={{ boxShadow: "none" }}
                 icon={<MessageOutlined />}
-              />
-
+              /> */}
+              {/* 
               <IconBtn
                 disableRipple
                 activeStyles={{ boxShadow: "none" }}
                 icon={<ExploreOutlined />}
-              />
-              <IconBtn
+              /> */}
+              {/* <IconBtn
                 disableRipple
                 activeStyles={{ boxShadow: "none" }}
                 icon={<FavoriteBorderOutlined />}
-              />
+              /> */}
               <Box
                 onClick={() =>
                   navigate(`/${currentUser.uid}`, { replace: true })
@@ -99,7 +103,7 @@ const Header = () => {
                 style={{ cursor: "pointer" }}
                 component={Avatar}
                 src={currentUser.photoURL}
-                ml={1}
+                ml={[0, 1]}
                 height="30px"
                 width="30px"
               />

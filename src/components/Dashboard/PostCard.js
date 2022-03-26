@@ -16,7 +16,7 @@ import {
 import { Body, Small } from "../basic-components/typography/typography";
 import { Box } from "../basic-components/base-component/Box";
 import getUserData from "../../firebase/getUserData";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   arrayRemove,
   arrayUnion,
@@ -50,6 +50,7 @@ const PostCard = ({ post }) => {
     const postLikes = (await getDoc(postRef)).data().likes;
     const postComments = (await getDoc(postRef)).data().comments;
     postComments && setComments(postComments);
+    console.log(postComments);
     postLikes && setLiked(postLikes.includes(currentUser.uid));
   }, [post]);
 
@@ -256,8 +257,12 @@ const PostCard = ({ post }) => {
           <IconBtn disableRipple icon={<ForumOutlined />} />
         </Box>
         <CommentSection onComment={(value) => handleComment(value)}>
-          {comments?.map(({ author, comment }) => (
-            <Comment key={Timestamp.now()} userId={author} comment={comment} />
+          {comments?.map((comment) => (
+            <Comment
+              key={comments.indexOf(comment)}
+              userId={comment.author}
+              comment={comment.comment}
+            />
           ))}
         </CommentSection>
       </Box>

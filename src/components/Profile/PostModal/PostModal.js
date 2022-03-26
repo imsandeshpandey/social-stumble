@@ -219,8 +219,12 @@ const PostModal = ({ postId, onCloseModal, onConfirmDelete }) => {
               <IconBtn disableRipple icon={<ForumOutlined />} />
             </Box>
             <CommentSection onComment={(value) => handleComment(value)}>
-              {comments?.map(({ author, comment }) => (
-                <Comment user={author} comment={comment} />
+              {comments?.map((comment) => (
+                <Comment
+                  key={comments.indexOf(comment)}
+                  user={comment.author}
+                  comment={comment.comment}
+                />
               ))}
             </CommentSection>
           </Box>

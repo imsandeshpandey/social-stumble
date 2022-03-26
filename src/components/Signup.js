@@ -236,7 +236,6 @@ const Signup = () => {
                   Sign Up
                 </Body>
               </PrimaryBtn>
-              <ProgressBar progress={progress} />
             </Flex>
           </Flex>
         </Container>

@@ -7,6 +7,7 @@ import { database } from "../../firebase/config";
 import getUserData from "../../firebase/getUserData";
 import { addPosts } from "../../Redux/actionsCreator";
 import { Box } from "../basic-components/base-component/Box";
+import { isMobile } from "../basic-components/typography/typography";
 import PostCard from "./PostCard";
 
 export default function Dashboard() {
@@ -43,6 +44,7 @@ export default function Dashboard() {
   return (
     <Box
       component={Container}
+      width={isMobile() && "100%"}
       pt={4}
       display="flex"
       flexDirection="column"

@@ -64,11 +64,11 @@ const CommentSection = ({ children, onComment }) => {
 
 export const Comment = ({ userId, comment }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [author, setAuthor] = useState(null);
   useEffect(async () => {
     if (userId) {
-      const userData = (await getUserData(userId)).data();
-      setUser(userData);
+      const data = (await getUserData(userId)).data();
+      setAuthor(data);
       console.log(1);
     }
   }, []);
@@ -79,7 +79,7 @@ export const Comment = ({ userId, comment }) => {
         <Avatar
           onClick={() => navigate(`/${userId}`)}
           sx={{ marginTop: "20px", height: 24, width: 24 }}
-          src="https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg"
+          src={author?.userPhoto}
         />
         <Body fontSize={14} color="grey.900">
           <Box
@@ -88,7 +88,7 @@ export const Comment = ({ userId, comment }) => {
             mr="4px"
             fontWeight="bold"
           >
-            {user?.username}
+            {author?.username}
           </Box>
           {comment}
         </Body>
