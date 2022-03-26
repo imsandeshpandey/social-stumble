@@ -12,7 +12,12 @@ import ProgressBar from "./ProgressBar";
 import useStorage from "../../firebase/useStorage";
 import { Box } from "../basic-components/base-component/Box";
 import Modal from "../basic-components/Modal/Modal";
-import { Body, Title3 } from "../basic-components/typography/typography";
+import {
+  Body,
+  isMobile,
+  Title3,
+} from "../basic-components/typography/typography";
+import { restShadows } from "../basic-components/theme/shadows";
 
 const baseStyle = {
   flex: 1,
@@ -21,9 +26,7 @@ const baseStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  borderWidth: 2,
   borderRadius: "50% 0 0 0",
-  borderStyle: "solid",
   bottom: 0,
   right: 0,
   outline: "none",
@@ -37,12 +40,14 @@ const acceptStyle = {
   padding: "200px",
   bottom: "-200px",
   right: "-200px",
+  backdropFilter: "blur(10px)",
 };
 
 const rejectStyle = {
   padding: "200px",
   bottom: "-200px",
   right: "-200px",
+  backdropFilter: "blur(10px)",
 };
 
 const UploadButton = () => {
@@ -65,9 +70,11 @@ const UploadButton = () => {
   const style = useMemo(() => {
     return {
       ...baseStyle,
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
+      ...(isFocused ? { ...focusedStyle } : {}),
+      ...(isDragAccept
+        ? { ...acceptStyle, boxShadow: restShadows.success }
+        : {}),
+      ...(isDragReject ? { ...rejectStyle, boxShadow: restShadows.error } : {}),
     };
   }, [isFocused, isDragAccept, isDragReject]);
 
@@ -108,9 +115,9 @@ const UploadButton = () => {
         }
         bgcolor={
           isDragAccept
-            ? `${theme.palette.success.main}1a`
+            ? `${theme.palette.success.main}55`
             : isDragReject
-            ? `${theme.palette.error.main}1a`
+            ? `${theme.palette.error.main}55`
             : "transparent"
         }
       ></Box>
@@ -129,16 +136,19 @@ const UploadButton = () => {
         <IconBtn
           display={isDragAccept || isDragReject ? "none" : "flex"}
           large
+          pd={isMobile() ? 10 : 15}
+          iconSize={isMobile() ? 25 : 35}
           style={{
             justifyContent: "center",
             borderRadius: 100,
             alignItems: "center",
             cursor: "pointer",
-            border: "2px solid",
+            // border: "2px solid",
             position: "relative",
             zIndex: 2,
-            borderColor: theme.palette.info.dark,
-            backgroundColor: `${theme.palette.info.main}1a`,
+            // borderColor: theme.palette.info.dark,
+            backgroundColor: `${theme.palette.grey[100]}77`,
+            backdropFilter: "blur(10px)",
           }}
           color="info.dark"
           boxShadow="z8"

@@ -26,22 +26,23 @@ export const ThemeBtn = (p) => {
       disableRipple
       color="grey.900"
       boxShadow="z8"
-      bgcolor="grey.100"
+      bgcolor={`${theme.palette.grey[100]}77`}
       sx={{
+        backdropFilter: "blur(10px)",
         aspectRatio: 1,
         overflow: "hidden",
-        padding: p.small ? "20px 20px" : "30px 30px",
+        padding: p.small ? "25px 25px" : "30px 30px",
       }}
       borderRadius="50%"
       icon={
         <Box>
           <Box
             component={LightModeOutlinedIcon}
-            height={p.small ? 20 : 30}
-            width={p.small ? 20 : 30}
+            height={p.small ? 25 : 30}
+            width={p.small ? 25 : 30}
             position="absolute"
             top={light ? 0 : -100}
-            padding={p.small ? "10px" : "15px"}
+            padding={p.small ? "12.5px" : "15px"}
             left={0}
             sx={{
               transition: "top 0.5s",
@@ -49,11 +50,11 @@ export const ThemeBtn = (p) => {
           />
           <Box
             component={DarkModeOutlinedIcon}
-            height={p.small ? 20 : 30}
-            width={p.small ? 20 : 30}
+            height={p.small ? 25 : 30}
+            width={p.small ? 25 : 30}
             position="absolute"
             top={!light ? 0 : 100}
-            padding={p.small ? "10px" : "15px"}
+            padding={p.small ? "12.5px" : "15px"}
             left={0}
             sx={{
               transition: "top 0.5s",

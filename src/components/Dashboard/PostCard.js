@@ -79,7 +79,7 @@ const PostCard = ({ post }) => {
 
   return post ? (
     <Box
-      width={[300, 500, 600]}
+      width={["100%", 500, 600]}
       boxShadow="z8"
       bgcolor="grey.200"
       borderRadius="4px"

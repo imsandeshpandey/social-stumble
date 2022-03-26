@@ -46,13 +46,7 @@ const App = () => {
       </Router>
       {/* <PostModal postId="OgKDK1lXXsvtU0tte1EQ" /> */}
       <Box position="fixed" bottom={40} left={40}>
-        <ThemeBtn
-          small={isMobile()}
-          style={{
-            border: "2px solid",
-            borderColor: theme.palette.grey[200],
-          }}
-        />
+        <ThemeBtn small={isMobile()} />
       </Box>
     </Box>
   );
