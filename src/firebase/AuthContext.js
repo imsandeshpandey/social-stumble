@@ -53,7 +53,6 @@ export default function AuthProvider({ children }) {
   }
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(1);
       setCurrentUser(user);
       window.localStorage.setItem("user", JSON.stringify(user));
     });

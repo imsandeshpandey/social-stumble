@@ -101,7 +101,7 @@ const TextField = styled(
     borderRadius: multiline ? "20px" : theme.shape.theme,
     outline: "none",
     marginTop: "4px",
-    backgroundColor: theme.palette.grey[200],
+    backgroundColor: p.bgcolor || theme.palette.grey[200],
     color: theme.palette.grey[900],
     paddingRight: p.wrapperPr ? p.wrapperPr : p.search || p.endIcon ? 8 : 0,
     paddingLeft: p.wrapperPl ? p.wrapperPl : p.search || p.startIcon ? 8 : 0,

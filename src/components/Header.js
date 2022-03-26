@@ -98,7 +98,7 @@ const Header = () => {
                 }
                 style={{ cursor: "pointer" }}
                 component={Avatar}
-                src="https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg"
+                src={currentUser.photoURL}
                 ml={1}
                 height="30px"
                 width="30px"

@@ -14,7 +14,6 @@ const UploadModal = (props) => {
   const [display, setDisplay] = useState("block");
   const url = URL.createObjectURL(props.file);
   const auth = useAuth();
-  console.log(auth);
 
   const handlePublish = () => {
     console.log(descriptionRef.current.value);

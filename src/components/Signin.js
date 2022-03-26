@@ -57,8 +57,12 @@ const Signin = () => {
       left={0}
       right={0}
       bottom={0}
-      bgcolor="grey.200"
       display="flex"
+      style={{
+        backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/sandesh-stumble.appspot.com/o/blender2.jpg?alt=media&token=358efdb6-0218-46e4-815a-f30653b64d7e")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
@@ -68,7 +72,8 @@ const Signin = () => {
         borderRadius={theme.shape.modal}
         width="350px"
         boxShadow="z24"
-        bgcolor="grey.100"
+        bgcolor={`${theme.palette.grey[100]}bb`}
+        sx={{ backdropFilter: "blur(20px)" }}
       >
         <Container>
           <Flex width="100%" mb={5} justifyContent="center" alignItems="center">
@@ -93,6 +98,7 @@ const Signin = () => {
                 </Alert>
               )}
               <TextField
+                bgcolor={`${theme.palette.grey[100]}77`}
                 py={8}
                 placeholder="Email Address"
                 type="text"
@@ -100,6 +106,7 @@ const Signin = () => {
                 required
               />
               <TextField
+                bgcolor={`${theme.palette.grey[100]}77`}
                 py={8}
                 placeholder="Password"
                 type={showPassword ? "text" : "password"}
@@ -122,7 +129,7 @@ const Signin = () => {
           </Flex>
         </Container>
       </Box>
-      <Body color="grey.500">
+      <Body textShadow="0 0 10px black" color="white">
         Don't have an Account?
         <Link style={{ textDecoration: "none" }} to="/signup">
           <Body bold component="span" m={0}>

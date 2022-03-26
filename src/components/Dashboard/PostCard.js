@@ -99,10 +99,7 @@ const PostCard = ({ post }) => {
             alignItems="center"
             gap={1}
           >
-            <Avatar
-              sx={{ height: 50, width: 50 }}
-              src="https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg"
-            />
+            <Avatar sx={{ height: 50, width: 50 }} src={author?.userPhoto} />
             <Box
             //username and date
             >

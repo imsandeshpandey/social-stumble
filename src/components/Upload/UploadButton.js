@@ -162,7 +162,7 @@ const UploadButton = () => {
             file={file}
             onCloseModal={() => setFile(null)}
             onPublish={(description) => {
-              uploadFile({ file, description });
+              uploadFile({ file: { file, description }, post: true });
             }}
           />
         )}

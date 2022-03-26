@@ -67,8 +67,9 @@ export const Comment = ({ userId, comment }) => {
   const [user, setUser] = useState(null);
   useEffect(async () => {
     if (userId) {
-      let userData = (await getUserData(userId)).data();
+      const userData = (await getUserData(userId)).data();
       setUser(userData);
+      console.log(1);
     }
   }, []);
 
