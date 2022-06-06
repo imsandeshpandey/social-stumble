@@ -50,7 +50,6 @@ const PostCard = ({ post }) => {
     const postLikes = (await getDoc(postRef)).data().likes;
     const postComments = (await getDoc(postRef)).data().comments;
     postComments && setComments(postComments);
-    console.log(postComments);
     postLikes && setLiked(postLikes.includes(currentUser.uid));
   }, [post]);
 

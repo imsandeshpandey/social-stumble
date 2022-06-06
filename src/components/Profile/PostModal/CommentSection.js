@@ -1,22 +1,20 @@
 import {
   ArrowUpward,
   SendOutlined,
+  SendRounded,
   UploadFileRounded,
   WrapTextOutlined,
 } from "@mui/icons-material";
 import { Avatar, useTheme } from "@mui/material";
-import { Timestamp } from "firebase/firestore";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import getUserData from "../../../firebase/getUserData";
 import { Box } from "../../basic-components/base-component/Box";
-import { IconBtn, InfoBtn } from "../../basic-components/button/ButtonVariants";
+import { IconBtn } from "../../basic-components/button/ButtonVariants";
 import Flex from "../../basic-components/Flex";
 import TextField from "../../basic-components/InputField/Input";
-import { Body, Small } from "../../basic-components/typography/typography";
-import UploadButton from "../../Upload/UploadButton";
+import { Body } from "../../basic-components/typography/typography";
 
-const commentRef = React.createRef();
 const CommentSection = ({ children, onComment }) => {
   const theme = useTheme();
   const [value, setValue] = useState("");
@@ -47,8 +45,9 @@ const CommentSection = ({ children, onComment }) => {
         />
         <IconBtn
           bgcolor="info.main"
-          pd={2}
           type="submit"
+          iconSize={18}
+          pd={8}
           boxShadow="info"
           color="grey.100"
           activeStyles={{ backgroundColor: theme.palette.info.main }}
@@ -56,7 +55,7 @@ const CommentSection = ({ children, onComment }) => {
           icon={<SendRounded />}
         />
       </Flex>
-      <Box maxHeight="200px" overflow="scroll">
+      <Box maxHeight="200px" mt={2} style={{ overflowY: "scroll" }}>
         {children}
       </Box>
     </Box>
@@ -70,7 +69,6 @@ export const Comment = ({ userId, comment }) => {
     if (userId) {
       const data = (await getUserData(userId)).data();
       setAuthor(data);
-      console.log(1);
     }
   }, []);
 

@@ -103,15 +103,17 @@ const PostModal = ({ postId, onCloseModal, onConfirmDelete }) => {
                 </Box>
               </Box>
 
-              <IconBtn
-                //options button
-                disableRipple
-                onClick={(e) => setAnchor(e.currentTarget)}
-                color="grey.500"
-                activeStyles={{ boxShadow: "none" }}
-                height="fix-content"
-                icon={<MoreVert />}
-              />
+              {currentUser.uid == author && (
+                <IconBtn
+                  //options button'
+                  disableRipple
+                  onClick={(e) => setAnchor(e.currentTarget)}
+                  color="grey.500"
+                  activeStyles={{ boxShadow: "none" }}
+                  height="fix-content"
+                  icon={<MoreVert />}
+                />
+              )}
 
               <Box
                 component={Menu}
