@@ -15,21 +15,6 @@ import AppLoggedIn from "./components/AppLoggedIn";
 import { useAuth } from "./firebase/AuthContext";
 import Dashboard from "./components/Dashboard/Dashboard";
 import PostModal from "./components/Profile/PostModal/PostModal";
-const NepaliDate = require("nepali-date");
-const Months = [
-  "Baisakh",
-  "Jestha",
-  "Ashad",
-  "Shrawan",
-  "Bhadra",
-  "Asoj",
-  "Kartik",
-  "Mangsir",
-  "Poush",
-  "Magh",
-  "Falgun",
-  "Chaitra",
-];
 const App = () => {
   const theme = useTheme();
   const { month, day, year } = new NepaliDate(new Date());
@@ -53,10 +38,6 @@ const App = () => {
               </PrivateRoute>
             }
           >
-            <Route path="/api/nepali-date" element={`${month}, ${day}`} />
-            <Route path="/api/nepali-date/day" element={day} />
-            <Route path="/api/nepali-date/year" element={year} />
-             <Route path="/api/nepali-date/month" element={month} />
             <Route path="/" element={<Dashboard />} />
             <Route path="/:username" element={<Profile />} />
           </Route>
