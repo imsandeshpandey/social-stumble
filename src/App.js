@@ -17,7 +17,6 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import PostModal from "./components/Profile/PostModal/PostModal";
 const App = () => {
   const theme = useTheme();
-  const { month, day, year } = new NepaliDate(new Date());
 
   return (
     <Box
